@@ -36,11 +36,4 @@ const Paper = sequelize.define(
   },
 );
 
-//associations
-Paper.belongsTo(User, { foreignKey: "createdBy", as: "admin" });
-Paper.hasMany(require("./question"), {
-  foreignKey: "paperId",
-  as: "questions",
-});
-
 module.exports = Paper;

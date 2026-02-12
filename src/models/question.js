@@ -28,11 +28,4 @@ const Question = sequelize.define(
   },
 );
 
-// Associations
-Question.belongsTo(Paper, { foreignKey: "paperId", as: "paper" });
-Question.hasMany(require("./option"), {
-  foreignKey: "questionId",
-  as: "options",
-});
-
 module.exports = Question;

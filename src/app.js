@@ -7,10 +7,13 @@ app.use(cors());
 
 const sequelize = require("../config/database");
 const userRoutes = require("../src/routes/userRoutes");
-
+const paperRoutes = require("../src/routes/paperRoutes");
+const questionRoutes = require("../src/routes/questionRoutes");
 
 app.get("/", (req, res) => res.send("Server is running"));
-app.use("/api/users" , userRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/paper", paperRoutes);
+app.use("/api/question", questionRoutes);
 
 (async () => {
   try {
@@ -21,4 +24,3 @@ app.use("/api/users" , userRoutes);
     console.log("DB error", error);
   }
 })();
-

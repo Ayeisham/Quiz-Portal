@@ -28,7 +28,4 @@ const Option = sequelize.define(
   },
 );
 
-// Associations
-Option.belongsTo(Question, { foreignKey: "questionId", as: "question" });
-
 module.exports = Option;
