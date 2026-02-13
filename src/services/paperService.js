@@ -1,4 +1,6 @@
-const Paper = require("../models/paper");
+
+const { Paper, Question, Option } = require("../models/associations"); 
+
 
 const createPaper = async (data) => {
   const paper = await Paper.create(data);
@@ -10,6 +12,11 @@ const getAllPapers = async () => {
     include: [
       {
         association: "questions",
+        include: [
+          {
+            association: "options",
+          },
+        ],
       },
     ],
   });

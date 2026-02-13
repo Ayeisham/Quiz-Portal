@@ -2,6 +2,7 @@ const User = require("./userModel");
 const Paper = require("./paper");
 const Question = require("./question");
 const Option = require("./option");
+const ExamSession = require("./examSession");
 
 // Associations
 
@@ -16,9 +17,17 @@ Question.belongsTo(Paper, { foreignKey: "paperId", as: "paper" });
 Question.hasMany(Option, { foreignKey: "questionId", as: "options" });
 Option.belongsTo(Question, { foreignKey: "questionId", as: "question" });
 
+//paper <=> examsession
+Paper.hasMany(ExamSession, { foreignKey: "paperId", as: "session" });
+ExamSession.belongsTo(Paper, { foreignKey: "paperId", as: "paperSession" });
+
+User.hasMany(ExamSession, { foreignKey: "examinerId", as: "userSession" });
+ExamSession.belongsTo(User, { foreignKey: "examinerId", as: "Session" });
+
 module.exports = {
   User,
   Paper,
   Question,
   Option,
+  ExamSession,
 };

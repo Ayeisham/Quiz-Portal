@@ -8,8 +8,23 @@ const authorize = require("../middlewares/roleMiddleware");
 router.post("/login", userController.loginUser);
 router.post("/register", userController.registerUser);
 
-router.get("/list", authorize(["admin"]), userController.listUsers);
-router.put("/:id", authorize(["admin"]), userController.updateUser);
-router.delete("/:id", authorize(["admin"]), userController.deleteUser);
+router.get(
+  "/list",
+  authenticate,
+  authorize(["admin"]),
+  userController.listUsers,
+);
+router.put(
+  "/:id",
+  authenticate,
+  authorize(["admin"]),
+  userController.updateUser,
+);
+router.delete(
+  "/:id",
+  authenticate,
+  authorize(["admin"]),
+  userController.deleteUser,
+);
 
 module.exports = router;

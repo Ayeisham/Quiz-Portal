@@ -9,7 +9,7 @@ const authenticate = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findByPk(decoded.id);
+    const user = await User.findByPk(decoded.id); //extra security check
     if (!user)
       return res.status(401).json({ success: false, message: "Unauthorized" });
     req.user = user; // attach user to request

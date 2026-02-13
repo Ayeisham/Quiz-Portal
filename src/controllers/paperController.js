@@ -7,7 +7,7 @@ const createPaper = async (req, res) => {
       createdBy: req.user.id,
     };
 
-    const paper = await paperService.createPaper(paperData);
+    const paper = await PaperService.createPaper(paperData);
 
     res.status(201).json({ success: true, data: paper });
   } catch (error) {

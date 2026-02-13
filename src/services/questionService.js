@@ -6,9 +6,20 @@ const createQuestion = async (data) => {
   return question;
 };
 
-const createOption = async (data) => {
-  const option = await Option.create(data);
-  return option;
+const createOption = async (optionsArray) => {
+  if (!Array.isArray(optionsArray)) {
+    throw new Error("Options must be an array");
+  }
+
+  const createdOptions = await Option.bulkCreate(optionsArray, {
+    returning: true,
+  });
+
+  return createdOptions;
+};
+
+module.exports = {
+  createOption,
 };
 
 module.exports = { createQuestion, createOption };
