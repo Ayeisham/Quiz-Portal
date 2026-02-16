@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
+const AttemptController = require("../controllers/attemptController");
 
 const authenticate = require("../middlewares/authMiddleware");
 const authorize = require("../middlewares/roleMiddleware");
@@ -25,6 +26,13 @@ router.delete(
   authenticate,
   authorize(["admin"]),
   userController.deleteUser,
+);
+
+router.post(
+  "/startExam",
+  authenticate,
+  authorize(["student"]),
+  AttemptController.startExam,
 );
 
 module.exports = router;

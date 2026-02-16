@@ -7,7 +7,7 @@ const { fullPaperSchema } = require("../validations/paperValidation");
 const validate = require("../middlewares/validateMiddleware");
 
 const PaperController = require("../controllers/paperController");
-const ExamController = require("../controllers/examSession");
+const ExamController = require("../controllers/examSessionController");
 
 router.post(
   "/createPaper",
