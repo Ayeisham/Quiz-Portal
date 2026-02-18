@@ -16,7 +16,12 @@ router.post(
   validate(fullPaperSchema),
   PaperController.createPaper,
 );
-router.get("/paperlist", authenticate, authorize(["admin" , "examiner"]),PaperController.getAllPapers);
+router.get(
+  "/paperlist",
+  authenticate,
+  authorize(["admin", "examiner"]),
+  PaperController.getAllPapers,
+);
 
 router.post(
   "/ExamSession",
