@@ -18,8 +18,4 @@ const createOption = async (optionsArray) => {
   return createdOptions;
 };
 
-module.exports = {
-  createOption,
-};
-
 module.exports = { createQuestion, createOption };

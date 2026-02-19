@@ -2,7 +2,6 @@ const StudentAttempt = require("../services/examAttemptService");
 
 const startExam = async (req, res) => {
   try {
-
     const studentId = req.user.id;
     const { joiningKey } = req.body;
     const Paper = await StudentAttempt.startExam(studentId, joiningKey);
@@ -13,4 +12,3 @@ const startExam = async (req, res) => {
 };
 
 module.exports = { startExam };
-

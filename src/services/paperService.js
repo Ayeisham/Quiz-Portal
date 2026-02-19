@@ -1,6 +1,4 @@
-
-const { Paper, Question, Option } = require("../models/associations"); 
-
+const { Paper } = require("../models/associations");
 
 const createPaper = async (data) => {
   const paper = await Paper.create(data);

@@ -12,7 +12,7 @@ const createQuestion = async (req, res) => {
 const createOption = async (req, res) => {
   try {
     const Option = await QuestionService.createOption(req.body);
-    
+
     res.status(201).json({ success: true, data: Option });
   } catch (error) {
     res.status(400).json({ succes: false, message: error.message });

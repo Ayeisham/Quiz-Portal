@@ -16,7 +16,6 @@ const fullPaperSchema = Joi.object({
   description: Joi.string().required(),
   securityKey: Joi.string().required(),
   isEnabled: Joi.boolean().required(),
- 
 });
 
 module.exports = {

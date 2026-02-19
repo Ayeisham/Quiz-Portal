@@ -44,6 +44,4 @@ const startExam = async (studentId, joiningKey) => {
   };
 };
 
-
-
 module.exports = { startExam };
